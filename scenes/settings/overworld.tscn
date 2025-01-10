@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqmocptetllve"]
+[gd_scene load_steps=3 format=3 uid="uid://cqmocptetllve"]
 
+[ext_resource type="Script" path="res://scripts/camera/cam_player.gd" id="1_2sdkg"]
 [ext_resource type="PackedScene" uid="uid://ss6qci5318n1" path="res://scenes/characters/player.tscn" id="1_ig6kg"]
 
 [node name="Overworld" type="Node2D"]
 
-[node name="Cam-Player" type="Camera2D" parent="."]
+[node name="Cam-Player" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("1_2sdkg")
+player = NodePath("Player")
 
 [node name="Player" parent="Cam-Player" instance=ExtResource("1_ig6kg")]
-scale = Vector2(2.48, 2.48)
+scale = Vector2(2.47319, 2.48)
