@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://ss6qci5318n1"]
+[gd_scene load_steps=18 format=3 uid="uid://ss6qci5318n1"]
 
 [ext_resource type="Texture2D" uid="uid://wgoyk32lepnj" path="res://assets/sprites/player/01-generic.png" id="1_klkak"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_n8xcu"]
+[ext_resource type="Script" path="res://components/movement/SpriteMovement.gd" id="3_tnqsu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d08bx"]
 size = Vector2(10, 15)
@@ -96,7 +97,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_kwox4")
 }],
 "loop": true,
-"name": &"walk-down",
+"name": &"move-down",
 "speed": 5.0
 }, {
 "frames": [{
@@ -107,7 +108,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_sn4wy")
 }],
 "loop": true,
-"name": &"walk-left",
+"name": &"move-left",
 "speed": 5.0
 }, {
 "frames": [{
@@ -118,7 +119,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_j4nla")
 }],
 "loop": true,
-"name": &"walk-right",
+"name": &"move-right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -129,7 +130,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_n0fca")
 }],
 "loop": true,
-"name": &"walk-up",
+"name": &"move-up",
 "speed": 5.0
 }]
 
@@ -142,6 +143,10 @@ script = ExtResource("1_n8xcu")
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_d08bx")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="Sprite" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_r6mfo")
 animation = &"idle-left"
+
+[node name="SpriteMovementComponent" type="Node2D" parent="CharacterBody2D" node_paths=PackedStringArray("ani_sprite")]
+script = ExtResource("3_tnqsu")
+ani_sprite = NodePath("../Sprite")

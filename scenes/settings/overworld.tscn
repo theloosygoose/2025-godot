@@ -5,9 +5,9 @@
 
 [node name="Overworld" type="Node2D"]
 
-[node name="Cam-Player" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+[node name="Cam-Player" type="Camera2D" parent="."]
 script = ExtResource("1_2sdkg")
-player = NodePath("Player")
 
-[node name="Player" parent="Cam-Player" instance=ExtResource("1_ig6kg")]
-scale = Vector2(2.47319, 2.48)
+[node name="Player" parent="Cam-Player" node_paths=PackedStringArray("player_camera") instance=ExtResource("1_ig6kg")]
+scale = Vector2(2.47319, 2.48822)
+player_camera = NodePath("..")
