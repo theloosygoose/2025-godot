@@ -8,15 +8,14 @@ class_name PlayerSceneNode
 @onready var input_move_component: InputMovementComponent = $InputMovementComponent
 
 
-
-func _physics_process(_delta: float) -> void:
-
-    # Update Direction
+func _ready() -> void:
     @warning_ignore("return_value_discarded")
     input_move_component.movement_direction.connect(_update_sprite_direction)
 
+func _physics_process(_delta: float) -> void:
     # Update Movement
     velocity = input_move_component.UpdateVelocity()
+    print(velocity)
 
     @warning_ignore("return_value_discarded")
     move_and_slide()

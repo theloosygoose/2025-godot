@@ -1187,13 +1187,13 @@ sources/5 = SubResource("TileSetAtlasSource_kpf5g")
 
 [node name="Overworld" type="Node2D"]
 
-[node name="Cam-Player" type="Camera2D" parent="."]
-zoom = Vector2(7, 7)
+[node name="Player" parent="." node_paths=PackedStringArray("player_camera") instance=ExtResource("1_ig6kg")]
+player_camera = NodePath("Cam-Player")
+
+[node name="Cam-Player" type="Camera2D" parent="Player"]
+zoom = Vector2(5, 5)
 script = ExtResource("1_2sdkg")
 pan_speed = 50.0
-
-[node name="Player" parent="Cam-Player" node_paths=PackedStringArray("player_camera") instance=ExtResource("1_ig6kg")]
-player_camera = NodePath("..")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(7, -1)

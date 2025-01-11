@@ -6,9 +6,11 @@ class_name InputMovementComponent
 
 signal movement_direction(direction: Vector2)
 
-var velocity: Vector2
+var velocity: Vector2 = Vector2(0,0)
 
 func UpdateVelocity() -> Vector2:
+    velocity = Vector2.ZERO
+
     #Move Camera with right stick and 'WASD'
     var stick_input: Vector2 = Vector2(
         Input.get_axis("input-left", "input-right"),
@@ -28,4 +30,5 @@ func UpdateVelocity() -> Vector2:
     if stick_input.length() > 0:
         velocity = stick_input * speed 
 
+    print_debug(velocity)
     return velocity
