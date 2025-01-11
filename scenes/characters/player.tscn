@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ss6qci5318n1"]
+[gd_scene load_steps=9 format=3 uid="uid://ss6qci5318n1"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_n8xcu"]
 [ext_resource type="Texture2D" uid="uid://cw3p0fk5dculd" path="res://assets/sprites/player/s-stick.png" id="2_aaae7"]
 [ext_resource type="Script" path="res://components/movement/SpriteMovement.gd" id="3_tnqsu"]
+[ext_resource type="Script" path="res://components/movement/InputMovement.gd" id="4_gbnv5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d08bx"]
 size = Vector2(2.71521, 15)
@@ -94,23 +95,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_n8xcu")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-collision_layer = 3
-collision_mask = 3
-motion_mode = 1
-platform_wall_layers = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2.94636, 0.511926)
 shape = SubResource("RectangleShape2D_d08bx")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r6mfo")
 animation = &"idle-down"
 
-[node name="SpriteMovementComponent" type="Node2D" parent="CharacterBody2D" node_paths=PackedStringArray("ani_sprite")]
+[node name="SpriteMovementComponent" type="Node2D" parent="." node_paths=PackedStringArray("ani_sprite")]
 script = ExtResource("3_tnqsu")
 ani_sprite = NodePath("../Sprite")
+
+[node name="InputMovementComponent" type="Node2D" parent="."]
+script = ExtResource("4_gbnv5")
+speed = 10
