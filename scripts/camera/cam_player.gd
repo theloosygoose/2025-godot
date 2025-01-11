@@ -6,6 +6,8 @@ class_name CameraPlayer
 @export var movement_smoothing: float = 10.0  # Higher value = smoother movement
 @export var stick_deadzone: float = 0.2      
 
+@export var player_scene_node: PlayerSceneNode
+
 signal camera_move_vec(direction: Vector2)
 
 @onready var target_position: Vector2 = position

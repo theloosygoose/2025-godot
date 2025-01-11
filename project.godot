@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="25-01-scaffold"
+config/tags=PackedStringArray("game", "main", "sandbox")
 run/main_scene="res://scenes/settings/overworld.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/sprites/icon.svg"
@@ -27,8 +28,6 @@ gdscript/warnings/return_value_discarded=1
 
 [display]
 
-window/size/viewport_width=200
-window/size/viewport_height=150
 window/stretch/mode="canvas_items"
 
 [editor_plugins]

@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://components/movement/SpriteMovement.gd" id="3_tnqsu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d08bx"]
-size = Vector2(10, 15)
+size = Vector2(2.71521, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_21bwb"]
 atlas = ExtResource("2_aaae7")
@@ -98,9 +98,13 @@ animations = [{
 script = ExtResource("1_n8xcu")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+motion_mode = 1
+platform_wall_layers = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, 0.5)
+scale = Vector2(2.94636, 0.511926)
 shape = SubResource("RectangleShape2D_d08bx")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="CharacterBody2D"]

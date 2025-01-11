@@ -18,5 +18,4 @@ func _ready() -> void:
 
 
 func _handle_camera_move(direction: Vector2) -> void:
-    print(direction)
     move_component.Update(direction)
