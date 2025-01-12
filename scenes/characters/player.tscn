@@ -112,4 +112,4 @@ ani_sprite = NodePath("../Sprite")
 
 [node name="InputMovementComponent" type="Node2D" parent="."]
 script = ExtResource("4_gbnv5")
-speed = 20
+speed = 30
