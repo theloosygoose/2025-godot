@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj1pb3irnbbeq"]
+
+[ext_resource type="Texture2D" uid="uid://bbbobu77h08xo" path="res://assets/sprites/icon.svg" id="1_3dgbi"]
+[ext_resource type="Script" path="res://scenes/card_scene/scrpt_card.gd" id="1_6rvrx"]
+[ext_resource type="Shader" path="res://scenes/card_scene/shdr_card.gdshader" id="1_tg1xo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vqw3d"]
+shader = ExtResource("1_tg1xo")
+shader_parameter/is_hover = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amxib"]
+size = Vector2(120, 123)
+
+[node name="Card" type="Node2D"]
+material = SubResource("ShaderMaterial_vqw3d")
+position = Vector2(277, 129)
+script = ExtResource("1_6rvrx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+use_parent_material = true
+texture = ExtResource("1_3dgbi")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_amxib")
