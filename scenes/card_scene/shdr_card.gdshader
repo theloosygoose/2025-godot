@@ -15,4 +15,3 @@ void fragment() {
 		COLOR.r = sin(1.0 * TIME);
 	}
 }
-
